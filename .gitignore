@@ -15,3 +15,5 @@ _minted-rendu
 fr/
 en/
 **/images/*.png
+report/content/
+*.run.xml
