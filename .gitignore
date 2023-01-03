@@ -1,0 +1,17 @@
+.idea/
+out/
+*.log
+*.blg
+*.aux
+*.bbl
+*.bcf
+*.synctex
+*.toc
+_minted-rendu
+*.pyg
+*.DS_Store
+*.out
+*.pdf
+fr/
+en/
+**/images/*.png

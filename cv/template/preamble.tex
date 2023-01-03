@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,onesize,a4paper,titlepage]{article}
+
+%%%%%%%%%%%%%%% Formatting %%%%%%%%%%%%%%% 
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry} % Margins
+\usepackage{sectsty} % Custom Sections
+\usepackage{eso-pic}
+
+\usepackage{sectsty,textcase}
+\usepackage{subfiles}
+
+\usepackage{etoolbox}
+\usepackage{calc}
+%%%%%%%%%%%%%%% Font %%%%%%%%%%%%%%% 
+
+\usepackage{Archivo}
+\usepackage[T1]{fontenc}
+
+%%%%%%%%%%%%%%% Graphics %%%%%%%%%%%%%%% 
+\usepackage{fontawesome5} % Icons
+\usepackage{graphicx} % Images
+\usepackage[most]{tcolorbox} % Color Box
+\usepackage{xcolor} % Colors
+\usepackage{tikz} % For Drawing Shapes
+\tcbuselibrary{breakable}
+\graphicspath{ {./images/} }
+
+%%%%%%%%%%%%%%% Miscelanous %%%%%%%%%%%%%%% 
+\usepackage{lipsum} % Lorem Ipsum
+\usepackage[hidelinks]{hyperref} % For Hyperlinks
+
+%%%%%%%%%%%%%%% Colors %%%%%%%%%%%%%%% 
+\definecolor{primary}{HTML}{353f4f} % Color of the side column
+\definecolor{text}{HTML}{242A34}
+\definecolor{linkColor}{HTML}{2a61bb}
+
+%%%%%%%%%%%%%%% Section Format %%%%%%%%%%%%%%% 
+% \sectionfont{                     
+%     \LARGE % Font size
+%     \sectionrule{0pt}{0pt}{-8pt}{1pt} % Rule under Section name
+% }
+
+\subsectionfont{
+    \LARGE % Font size
+    \centering
+    % \fontsize{12pt}
+    \fontfamily{phv}\selectfont % Font family
+    % \sectionrule{0pt}{0pt}{-8pt}{1pt} % Rule under Subsection name
+    \MakeTextUppercase
+    % \vspace*{0.3cm}
+}
+
+%%%%%%%%%%%%%%% Margins and Headers %%%%%%%%%%%%%%%
+
+\usepackage{adjustbox} % to a better alignement of text
+\geometry{
+  a4paper,
+  left=80mm,
+  right=8mm,
+  bottom=10mm,
+  top=10mm
+}
+
+\pagestyle{empty} % Empty Headers
+\setlength{\parindent}{0pt}
+\hyphenpenalty=100000
+\exhyphenpenalty=100000
