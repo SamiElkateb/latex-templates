@@ -1,0 +1,68 @@
+\makeatletter
+% \newcommand\photo[1]{\def\@photo{#1}}
+
+\newcommand{\nameinput}{}%
+\newcommand{\name}[1]{%
+    \renewcommand{\nameinput}{#1}}%
+
+\newcommand{\professioninput}{}%
+\newcommand{\profession}[1]{%
+    \renewcommand{\professioninput}{#1}}%
+
+
+\newcommand{\searchinginput}{}%
+\newcommand{\searching}[1]{%
+    \renewcommand{\searchinginput}{#1}}%
+
+\newcommand{\aboutinput}{}%
+\newcommand{\about}[1]{%
+    \renewcommand{\aboutinput}{#1}}%
+
+\let\works\@gobble
+\newcommand{\work}[7]{%
+  \expandafter\def\expandafter\works\expandafter{\works\\ \workdisplay{#1}{#2}{#3}{#4}{#5}{#6}{#7}\vfill}%
+
+}%
+
+\let\projects\@gobble
+\newcommand{\project}[5]{%
+  \expandafter\def\expandafter\projects\expandafter{\projects\\ \projectdisplay{#1}{#2}{#3}{#4}{#5}\vfill}%
+}%
+
+\let\educations\@gobble
+\newcommand{\education}[7]{%
+  \expandafter\def\expandafter\educations\expandafter{\educations\\ \educationdisplay{#1}{#2}{#3}{#4}{#5}{#6}{#7}\vfill}%
+}%
+
+
+\newcommand*{\makecontent}{%
+      \namedisplay{\nameinput}
+      \professiondisplay{\professioninput}
+      \searchingdisplay{\searchinginput}
+
+        
+      \ifdefempty{\aboutinput}{\vfil}{
+          \IfLanguageName{french}
+          {\mainsection{\hspace{0.6em}}{À propos}}
+          {\mainsection{\hspace{0.6em}}{About}}%
+          \aboutdisplay{\aboutinput}
+      }
+
+      \IfLanguageName{french}
+      {\mainsection{\faSuitcase}{Expériences Professionnelles}}
+      {\mainsection{\faSuitcase}{Experience}}%
+      \works
+
+      \IfLanguageName{french}
+      {\mainsection{\faCodeBranch}{Projets}}
+      {\mainsection{\faCodeBranch}{Projects}}%
+      \projects
+
+      \IfLanguageName{french}
+      {\mainsection{\faGraduationCap}{Formation}}
+      {\mainsection{\faGraduationCap}{Education}}%
+      \educations
+
+}
+
+\makeatother

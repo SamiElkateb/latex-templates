@@ -1,8 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[11pt,onesize,a4paper,titlepage]{article}
+% \documentclass[11pt,onesize,a4paper,titlepage]{article}
+\documentclass[11pt,a4paper,titlepage]{article}
 
 %%%%%%%%%%%%%%% Formatting %%%%%%%%%%%%%%% 
-\usepackage[english]{babel}
+\usepackage[french,english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry} % Margins
 \usepackage{sectsty} % Custom Sections
@@ -37,12 +38,6 @@
 \definecolor{text}{HTML}{242A34}
 \definecolor{linkColor}{HTML}{2a61bb}
 
-%%%%%%%%%%%%%%% Section Format %%%%%%%%%%%%%%% 
-% \sectionfont{                     
-%     \LARGE % Font size
-%     \sectionrule{0pt}{0pt}{-8pt}{1pt} % Rule under Section name
-% }
-
 \subsectionfont{
     \LARGE % Font size
     \centering
@@ -53,6 +48,11 @@
     % \vspace*{0.3cm}
 }
 
+
+%%%%%%%%%%%%%%% IF %%%%%%%%%%%%%%% 
+\usepackage{iflang}
+\usepackage{ifthen}
+
 %%%%%%%%%%%%%%% Margins and Headers %%%%%%%%%%%%%%%
 
 \usepackage{adjustbox} % to a better alignement of text
@@ -60,8 +60,8 @@
   a4paper,
   left=80mm,
   right=8mm,
-  bottom=10mm,
-  top=10mm
+  bottom=4mm,
+  top=4mm
 }
 
 \pagestyle{empty} % Empty Headers

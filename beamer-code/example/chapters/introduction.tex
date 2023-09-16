@@ -1,0 +1,49 @@
+% \chapter{Introduction}
+% \lipsum
+
+\section{section 1}
+
+\begin{frame}{Figure with other content}
+\begin{columns}
+% Column 1
+\begin{column}{0.5\textwidth}
+        Here I can explain in detail what the figure represents.
+\end{column}
+% Column 2    
+\begin{column}{0.5\textwidth}
+    \begin{figure}
+    \centering
+        \includegraphics[width=0.7\textwidth]{Ques.png}
+        \caption{A figure that is next to a certain explanation.}
+    \end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{section 2}
+\frame{}
+\section{ABCD}
+\frame{}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item <1>\textbf{Introduction}
+        \item <2>\textbf{Présentation}
+        \item <3>\textbf{Test}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Some Code}
+    \begin{minted}{java}
+        import java.util.concurrent.Semaphore;
+        class Main{
+          public static void main(String[] args){
+            private Semaphore mutex;
+            mutex = new Semaphore(1, true);
+            mutex.acquire();
+            // critical section
+            mutex.release();
+          }
+        }
+    \end{minted}
+\end{frame}

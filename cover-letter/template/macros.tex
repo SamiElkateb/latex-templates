@@ -1,0 +1,13 @@
+\makeatletter
+\newcommand\content[1]{\def\@content{#1}}
+
+\newcommand*{\makecontent}{%
+\justifying
+    \@content%
+}
+\makeatother
+%%%
+
+\makeatletter
+  \newcommand\writtenAt[1]{\def\@writtenAt{#1}}
+\makeatother

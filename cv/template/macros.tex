@@ -1,9 +1,8 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\mainsection}[2]{
   \color{primary}
-  \vspace{1.4em}
+  \vspace{1.2em}
   \par\textbf{\Large #1 \hspace{0.2em} \uppercase{#2}}
   \color{text}
   \vspace{0.4em}
@@ -18,7 +17,7 @@
 
 \newcommand{\sidebarsubsection}[1]{
     \vspace{0.3cm}
-    \textbf{\large \uppercase{#1}}
+    \par\textbf{\large \uppercase{#1}}
     \vspace{0.1cm}
 }
 
@@ -27,33 +26,38 @@
   \vspace{0.3cm}
 }
 
+%%%%%%%%%%%%%%% About Section %%%%%%%%%%%%%%% 
+\newcommand{\aboutdisplay}[1]{{
+  \onehalfspacing%
+  \large\par #1%
+  \par %
+}}
+
 %%%%%%%%%%%%%%% Link With an Icon %%%%%%%%%%%%%%% 
 \newcommand{\link}[1]{
     \href{#1}{\faIcon{link}}
 }
 
 %%%%%%%%%%%%%%% Header Template %%%%%%%%%%%%%%% 
-\newcommand{\name}[1]{{
+\newcommand{\namedisplay}[1]{{
     \color{primary}
     \Huge\bfseries
     \par\raggedright #1
 }}
 
-\newcommand{\profession}[1]{{
+\newcommand{\professiondisplay}[1]{{
     \color{primary}
     \vspace*{0.4em}
     \Large\bfseries
     \par\raggedright #1 
 }}
 
-
-\newcommand{\searching}[1]{{
+\newcommand{\searchingdisplay}[1]{{
     \color{primary}
     \vspace*{0.3em}
     \Large
     \par\raggedright #1 
 }}
-
 
 %%%%%%%%%%%%%%% Contact Details %%%%%%%%%%%%%%%
 \newcommand{\info}[2]{
@@ -62,13 +66,13 @@
 }
 
 %%%%%%%%%%%%%%% Email %%%%%%%%%%%%%%%
-\newcommand{\email}[1]{
+\newcommand{\emaildisplay}[1]{
     \par\info{\href{mailto:#1}{\underline{#1}}}{envelope}%
     \vspace{0.5em}%
 }
 
 %%%%%%%%%%%%%%% Phone Number %%%%%%%%%%%%%%%
-\newcommand{\phone}[1]{
+\newcommand{\phonedisplay}[1]{
     \par\info{\href{tel:#1}{{#1}}}{mobile-alt}%
     \vspace{0.5em}%
 }
@@ -79,19 +83,19 @@
 }
 
 %%%%%%%%%%%%%%% GitHub %%%%%%%%%%%%%%%
-\newcommand{\github}[2]{
+\newcommand{\githubdisplay}[2]{
     \par\info{\href{#1}{\underline{#2}}}{github}%
     \vspace{0.5em}%
 }
 
 %%%%%%%%%%%%%%% LinkedIn %%%%%%%%%%%%%%%
-\newcommand{\linkedin}[2]{
+\newcommand{\linkedindisplay}[2]{
     \par\info{\href{#1}{\underline{#2}}}{linkedin}%
     \vspace{0.5em}%
 }
 
 %%%%%%%%%%%%%%% StackOverflow %%%%%%%%%%%%%%%
-\newcommand{\stackoverflow}[2]{
+\newcommand{\stackoverflowdisplay}[2]{
     \par\info{\href{#1}{\underline{#2}}}{stack-overflow}%
     \vspace{0.5em}%
 }
@@ -161,7 +165,7 @@
 }
 
 %%%%%%%%%%%%%%% Language %%%%%%%%%%%%%%%
-\newcommand{\lan}[2]{ 
+\newcommand{\langdisplay}[2]{ 
     % input: name of the language, level
     \noindent\par \large \hangafter=0
     \textbf{#1 - #2}
@@ -221,25 +225,67 @@
 
 
 % Command for Experience
-\newcommand{\work}[6]{ % input: years, company, title, stack, description
-  \hyphenpenalty=100000
-  \vspace*{0.5em}
-  \par\adjustbox{valign=t}{\begin{minipage}{2.5cm}
-        \begin{center}
+\newcommand{\projectdisplay}[5]{ % input: years, project, description, stack, worklinks
+  \hyphenpenalty=100000%
+  \vspace*{0.5em}%
+  \par\adjustbox{valign=m}{\begin{minipage}{2.5cm}%
+        \begin{center}%
             {\small \bfseries #1} \\
-            \vspace*{0.3em}
-        \end{center}
-    \end{minipage}}
-    \hfill \vline \hfill
-    \adjustbox{valign=t}{\begin{minipage}{8cm}
-        \par\uppercase{\textbf{\large #2}}
-        \vspace*{0.3em}
-        \par\uppercase{\textbf{\small #3}}
-        \vspace*{0.2em}
-        \par\uppercase{\small #4}
-        #5
-    \end{minipage}}
-    \vspace{1.5em}
+            \vspace*{0.3em}%
+        \end{center}%
+    \end{minipage}}%
+    \hfill \vline \hfill%
+    \adjustbox{valign=m}{\begin{minipage}{8cm}%
+        \par\uppercase{\textbf{\large #2}}%
+        \ifstrempty{#3}{}{%
+          \vspace*{0.15em}%
+          \par\uppercase{\small #3}%
+        }%
+        \ifstrempty{#4}{}{%
+          \vspace*{0.25em}%
+          \par\emph{\small #4}%
+        }%
+        \ifstrempty{#5}{}{%
+          \vspace*{0.1em}%
+          #5%
+        }%
+    \end{minipage}}%
+}
+
+% Command for Experience
+\newcommand{\workdisplay}[7]{ % input: years, logo, company, title, stack, description
+  \hyphenpenalty=100000%
+  \vspace*{0.5em}%
+  \par\adjustbox{valign=m}{\begin{minipage}{2.5cm}%
+        \begin{center}%
+            {\small \bfseries #1} \\
+            \ifstrempty{#2}{}{%
+              \vspace*{0.3em}
+              \includegraphics[width=2.4cm]{#2}
+            }%
+            \vspace*{0.3em}%
+        \end{center}%
+    \end{minipage}}%
+    \hfill \vline \hfill%
+    \adjustbox{valign=m}{\begin{minipage}{8cm}%
+        \par\uppercase{\textbf{\large #3}}%
+        \ifstrempty{#3}{}{%
+          \vspace*{0.25em}%
+          \par\uppercase{\textbf{\small #4}}%
+        }%
+        \ifstrempty{#4}{}{%
+          \vspace*{0.15em}%
+          \par\uppercase{\small #5}%
+        }%
+        \ifstrempty{#6}{}{%
+          \vspace*{0.1em}%
+          #6%
+        }%
+        \ifstrempty{#7}{}{%
+          \vspace*{0.1em}%
+          \par\emph{\small #7}%
+        }%
+    \end{minipage}}%
 }
 
 
@@ -250,18 +296,18 @@
 
 
 % Command for Education and Works
-\newcommand{\education}[7]{ % input: years, logo, title, university, city, specialization, description
+\newcommand{\educationdisplay}[7]{ % input: years, logo, title, university, city, specialization, description
   \hyphenpenalty=100000
   \vspace*{0.4em}
-  \par\adjustbox{valign=t}{\begin{minipage}{2.5cm}
+  \par\adjustbox{valign=m}{\begin{minipage}{2.5cm}
         \begin{center}
             {\small \bfseries #1} \\
-            \vspace*{0.2em}
+            \vspace*{0.3em}
           \includegraphics[width=2.4cm]{#2}
         \end{center}
     \end{minipage}}
     \hfill \vline \hfill
-    \adjustbox{valign=t}{\begin{minipage}{8cm}
+    \adjustbox{valign=m}{\begin{minipage}{8cm}
         \par\uppercase{\textbf{\large #3}}
         \vspace*{0.3em}
         \par\uppercase{\textbf{\small #4}}
@@ -276,7 +322,6 @@
     %     % \newline
     %     % \footnotesize {#7} 
     % \end{minipage}}
-    \vspace{1.5em}
 }
 
 
@@ -292,4 +337,3 @@
 \newcommand{\checknextarg}{\@ifnextchar\bgroup{\gobblenext}{}}% Check if another "argument" exists
 \newcommand{\gobblenext}[1]{\csvdel\uppercase{#1}\@ifnextchar\bgroup{\gobblenext}{}}% Gobble next "argument"
 \makeatother
-

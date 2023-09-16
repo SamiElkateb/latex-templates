@@ -1,0 +1,91 @@
+\makeatletter
+\newcommand\subject[1]{\def\@subject{#1}}
+
+
+\renewcommand*{\makeletterclosing}{%
+  \bigskip
+  \par\@closing
+  {\par\hfill\bfseries\@firstname\space\@familyname}\\%
+}
+\renewcommand*{\makeletterfoot}{%
+}
+
+\renewcommand*{\makeletterhead}{%
+  % \makehead%
+  \par%
+
+  \begin{minipage}[t]{.5\textwidth}
+    \raggedright%
+    {\bfseries\upshape\@firstname\space\@familyname}\\%
+    \@addressstreet\\
+    \@addresscity\\
+    % \@mobile\\
+    \@email\\
+    % \@addresscity%
+  \end{minipage}
+
+\begin{flushright}
+\begin{minipage}[t]{4cm}
+    \raggedright%
+    \addressfont%
+    {\bfseries\upshape\@recipientname}\\%
+    \@recipientaddress%
+  \end{minipage}\\
+\end{flushright}
+  
+  % date
+  % \hfill% US style
+%  \\[1em]% UK style
+  % \@date\\[2em]% US informal style: "January 1, 1900"; UK formal style: "01/01/1900"
+
+  \IfLanguageName{french}
+    {À \@writtenAt, le \@date}
+    {\DTMenglishmonthname{\@dtm@month} \@dtm@year}\\%
+  %________ADDED_<<<<<<
+\bigskip
+
+  \IfLanguageName{french}
+    {\textbf{Objet: \@subject}}
+    {\textbf{Subject: \@subject}}\\%
+\\
+\noindent
+%_______________________
+  % opening
+  \raggedright%
+  \@opening\\[1.5em]%
+  % ensure no extra spacing after \makelettertitle due to a possible blank line
+  \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
+\makeatother
+%%%
+
+
+% \newcommand*{\makeletterheaden}{%
+%   % \makehead%
+%   \par%
+
+%   \begin{minipage}[t]{.5\textwidth}
+%     \raggedright%
+%     \addressfont%
+%     {\bfseries\upshape\@recipientname}\\%
+%     \@recipientaddress%
+%   \end{minipage}
+%   % date
+%   \hfill% US style
+% %  \\[1em]% UK style
+
+%   \IfLanguageName{french}
+%     {À ..., le \\ \@date}
+%     {\DTMenglishmonthname{\@dtm@month} \@dtm@year}%
+%   % \@date\\[2em]% US informal style: "January 1, 1900"; UK formal style: "01/01/1900"
+%   %________ADDED_<<<<<<
+% \bigskip
+% \textbf{Object: \@subject}\\
+% \noindent
+% %_______________________
+%   % opening
+%   \raggedright%
+%   \@opening\\[1.5em]%
+%   % ensure no extra spacing after \makelettertitle due to a possible blank line
+%   \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
+% \makeatother
+% %%%

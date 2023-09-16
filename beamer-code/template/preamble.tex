@@ -1,12 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[11pt,onesize,a4paper,titlepage]{report}
+\documentclass[14pt, aspectratio=169]{beamer}
 
 %%%%%%%%%%%%%%% Formatting %%%%%%%%%%%%%%% 
+\usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[french,english]{babel}
 \usepackage{iflang}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{geometry}
 \usepackage{subfiles}
 
@@ -19,7 +18,7 @@
 
 %%%%%%%%%%%%%%% Miscelanous %%%%%%%%%%%%%%% 
 \usepackage{lipsum} % Lorem Ipsum
-\usepackage[hidelinks]{hyperref} % For Hyperlinks
+% \usepackage[hidelinks]{hyperref} % For Hyperlinks
 \usepackage{etoolbox}
 
 %%%%%%%%%%%%%%% Colors %%%%%%%%%%%%%%% 
@@ -39,8 +38,6 @@
 
 \input{template/title-page.tex}
 
-%%%%%%%%%%%%%%% Chapter Title %%%%%%%%%%%%%%% 
-\usepackage{titlesec}
-\usepackage{color}
-\definecolor{gray75}{gray}{0.75}
-\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter\hspace{10pt}\textcolor{gray75}{|}\hspace{10pt}}{0pt}{\huge\bfseries}
+
+
+

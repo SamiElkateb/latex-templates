@@ -1,0 +1,109 @@
+\makeatletter
+% \newcommand\photo[1]{\def\@photo{#1}}
+
+\newcommand{\photoinput}{}%
+\newcommand{\photo}[1]{%
+    \renewcommand{\photoinput}{#1}}%
+
+\newcommand{\phoneinput}{}%
+\newcommand{\phone}[1]{%
+    \renewcommand{\phoneinput}{#1}}%
+
+
+\newcommand{\emailinput}{}%
+\newcommand{\email}[1]{%
+    \renewcommand{\emailinput}{#1}}%
+
+\newcommand{\linkedinnameinput}{}%
+\newcommand{\linkedinlinkinput}{}%
+\newcommand{\linkedin}[2]{%
+    \renewcommand{\linkedinlinkinput}{#1}
+    \renewcommand{\linkedinnameinput}{#2}
+}%
+
+\newcommand{\githubnameinput}{}%
+\newcommand{\githublinkinput}{}%
+\newcommand{\github}[2]{%
+    \renewcommand{\githublinkinput}{#1}
+    \renewcommand{\githubnameinput}{#2}
+}%
+
+\newcommand{\stackoverflownameinput}{}%
+\newcommand{\stackoverflowlinkinput}{}%
+\newcommand{\stackoverflow}[2]{%
+    \renewcommand{\stackoverflowlinkinput}{#1}
+    \renewcommand{\stackoverflownameinput}{#2}
+}%
+
+\newcommand{\hasSkills}{}%
+
+\let\allSkills\@gobble
+\newcommand{\skillDomain}[1]{%
+  \expandafter\def\expandafter\allSkills\expandafter{\allSkills\\ #1}%
+  \renewcommand{\hasSkills}{true}
+}%
+
+\newcommand{\hasCertifications}{}%
+
+\let\certifications\@gobble
+\newcommand{\certification}[1]{%
+  \expandafter\def\expandafter\certifications\expandafter{\certifications\ #1}%
+  \renewcommand{\hasCertifications}{true}
+}
+
+\newcommand{\hasLanguages}{}%
+\let\languages\@gobble
+\newcommand{\lang}[2]{%
+  \expandafter\def\expandafter\languages\expandafter{\languages\ \langdisplay{#1}{#2}}%
+  \renewcommand{\hasLanguages}{true}
+}
+
+
+\newcommand*{\makesidebar}{%
+\begin{textblock}{3}[0,0](0,0)
+\noindent\adjustbox{padding=1em, set depth=1.2\textheight, bgcolor*=\color{primary}}
+  {
+  \begin{minipage}[t]{1\linewidth}
+      \color{white}
+
+        \ifdefempty{\photoinput}{}{
+            \begin{center}%
+            \begin{minipage}{0.8\textwidth} % Picture Area
+                \includegraphics[width=\textwidth]{\photoinput} % Picture
+            \end{minipage}%
+            \end{center}%
+             \hfill%
+        }
+
+        \sidebarsection{Contact}
+        \phonedisplay{\phoneinput}
+        \emaildisplay{\emailinput}
+        \linkedindisplay{\linkedinlinkinput}{\linkedinnameinput}
+        \githubdisplay{\githublinkinput}{\githubnameinput}
+        \stackoverflowdisplay{\stackoverflowlinkinput}{\stackoverflownameinput}
+
+        \ifdefempty{\hasSkills}{}{
+          \IfLanguageName{french}
+            {\sidebarsection{Compétences}}
+            {\sidebarsection{Skills}}%
+          \allSkills
+        }
+        
+        \ifdefempty{\hasCertifications}{}{
+          \sidebarsection{Certifications}
+          \certifications
+        }
+
+        \ifdefempty{\hasLanguages}{}{
+          \IfLanguageName{french}%
+          {\sidebarsection{Langues}}%
+          {\sidebarsection{Languages}}%
+          \languages%
+        }
+
+    \end{minipage}
+    }
+\end{textblock}
+}
+
+\makeatother

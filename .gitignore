@@ -17,3 +17,10 @@ en/
 **/images/*.png
 report/content/
 *.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+_minted-main
+
